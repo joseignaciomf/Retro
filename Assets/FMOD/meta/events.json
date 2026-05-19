@@ -1,0 +1,12 @@
+﻿{
+  "events": [
+    "event:/FX/Bic_Snap",
+    "event:/FX/Tape_Roll",
+    "event:/FX/Knob_Click",
+    "event:/Loops/White_Noise",
+    "event:/Music/Retro_Show",
+    "event:/Stingers/Win_Jingle",
+    "event:/Music/CassetteLoop",
+    "event:/Music/TVTuning"
+  ]
+}

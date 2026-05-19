@@ -1,6 +1,6 @@
-RetroRescue: The 90s Glitch - v1.0 scaffold
+ÔªøRetroRescue: The 90s Glitch - v1.0 scaffold
 
-Archivos aÒadidos (esqueleto):
+Archivos a√±adidos (esqueleto):
 - Assets/_Project/Architecture/GameEvents.cs
 - Assets/_Project/Features/Cassette/CassetteController.cs
 - Assets/_Project/Features/Cassette/CassetteInput.cs
@@ -14,22 +14,27 @@ Archivos aÒadidos (esqueleto):
 - .gitignore
 - .github/workflows/unity-ci.yml (placeholder)
 
-Instrucciones r·pidas:
+Instrucciones r√°pidas:
 1. Abrir este proyecto con Unity 6 LTS.
 2. Esperar a que Unity procese los assets y compile los scripts.
-3. En Unity Editor, abrir el men˙: RetroRescue -> Build Example Prefabs.
-   - Esto crear· prefabs en `Assets/Prefabs` y assets `LevelDataSO` en `Assets/Levels`.
+3. En Unity Editor, abrir el men√∫: RetroRescue -> Build Example Prefabs.
+   - Esto crear√° prefabs en `Assets/Prefabs` y assets `LevelDataSO` en `Assets/Levels`.
 4. Abrir el prefab `Assets/Prefabs/Level_Cassette_Example.prefab`:
-   - Verificar que el GameObject raÌz tenga `CassetteController`, `CassetteInput`.
+   - Verificar que el GameObject ra√≠z tenga `CassetteController`, `CassetteInput`.
    - Asignar referencias si es necesario (LeftGear / RightGear / Tape).
-5. Crear un Canvas con `Slider` y `Text`, aÒadir `HUDProgressController` y enlazar las referencias.
-6. Importar FMOD (opcional) para audio; si no est·, el `AudioFeedbackController` usa logs por defecto.
+5. Crear un Canvas con `Slider` y `Text`, a√±adir `HUDProgressController` y enlazar las referencias.
+6. Importar FMOD (opcional) para audio; si no est√°, el `AudioFeedbackController` usa logs por defecto.
 
-Siguientes pasos sugeridos:\n- AÒadir CI: se ha aÒadido el workflow '.github/workflows/unity-editmode-tests.yml' que ejecuta las pruebas EditMode en cada push/PR.\n  * Requisitos: configurar la variable de repositorio 'UNITY_VERSION' (ej: '6.0.0f1') y opcionalmente el secret 'UNITY_LICENSE' si se requiere activaciÛn.\n
-- Implementar la mec·nica `MEC-002` (TV Tuning) y su controlador en `Assets/_Project/Features/TVTuning`.
-- AÒadir tests unitarios para la lÛgica de progreso y c·lculo de ·ngulos.
+Siguientes pasos sugeridos:\n- A√±adir CI: se ha a√±adido el workflow '.github/workflows/unity-editmode-tests.yml' que ejecuta las pruebas EditMode en cada push/PR.\n  * Requisitos: configurar la variable de repositorio 'UNITY_VERSION' (ej: '6.0.0f1') y opcionalmente el secret 'UNITY_LICENSE' si se requiere activaci√≥n.\n
+- Implementar la mec√°nica `MEC-002` (TV Tuning) y su controlador en `Assets/_Project/Features/TVTuning`.
+- A√±adir tests unitarios para la l√≥gica de progreso y c√°lculo de √°ngulos.
 - Configurar Git LFS antes del primer commit para los assets binarios.
 
 Notas:
 - Los prefabs y assets se crean mediante un Editor script en `Assets/Editor/LevelPrefabBuilder.cs`.
-- Si Unity muestra errores de compilaciÛn, abrir la consola y corregirlos antes de ejecutar el men˙.
+- Si Unity muestra errores de compilaci√≥n, abrir la consola y corregirlos antes de ejecutar el men√∫.
+
+Shader y FMOD de prueba:
+- Shader: Assets/Shaders/TVNoise.shader (propiedades: _NoiseOpacity, _Clarity, _Speed). Crear un material con este shader y asignarlo al screenRenderer del prefab TV para probar la est√°tica din√°mica.
+- FMOD: Assets/FMOD/meta/events.json contiene rutas de eventos de ejemplo. Importa tu proyecto FMOD y mapea estos eventos a las rutas indicadas. Si FMOD no est√° disponible, AudioFeedbackController escribe logs de evento para pruebas.
+
