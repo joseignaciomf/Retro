@@ -1,0 +1,31 @@
+﻿name: Unity EditMode Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  editmode-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache Unity packages
+        uses: game-ci/unity-cache@v2
+
+      - name: Run EditMode Tests (Unity Test Runner)
+        uses: game-ci/unity-test-runner@v2
+        with:
+          unityVersion: ${{ vars.UNITY_VERSION }}
+          testMode: editmode
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unity-test-results
+          path: TestResults

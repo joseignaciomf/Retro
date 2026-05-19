@@ -1,0 +1,16 @@
+﻿name: Unity CI
+on:
+  push:
+    branches: [ develop, main ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Cache Unity
+        uses: actions/cache@v3
+      - name: Run Unity Tests (placeholder)
+        run: echo "Run Unity Test Framework here"
